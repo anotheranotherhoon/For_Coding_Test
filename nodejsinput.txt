@@ -1,6 +1,9 @@
+0. 공통
+const fs = require('fs');
+const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
+
 // 1. 하나의 값을 입력받을 때
 
-const filePath = process.platform === 'linux' ? '/dev/stdin' : '../input.txt';
 const input = require('fs').readFileSync(filePath).toString().trim();
 
 
@@ -8,20 +11,20 @@ const input = require('fs').readFileSync(filePath).toString().trim();
 
 // 2. 공백으로 구분된 한 줄의 값들을 입력받을 때
 
-const input = require('fs').readFileSync('/dev/stdin').toString().trim().split(' ');
+const input = require('fs').readFileSync(filePath).toString().trim().split(' ');
 
 ​
 
 // 3. 여러 줄의 값들을 입력받을 때
 
-const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
+const input = require('fs').readFileSync(filePath).toString().trim().split('\n');
 
 ​
 
 // 4. 첫 번째 줄에 자연수 n을 입력받고, 그 다음줄에 공백으로 구분된 n개의 값들을 입력받을 때
 
 const fs = require('fs');
-const filePath = process.platform === 'linux' ? '/dev/stdin' : '../input.txt';
+const filePath = process.platform === 'linux' ? filePath : './input.txt';
 const [n, ...arr] = require('fs')
   .readFileSync(filePath)
   .toString()
@@ -32,7 +35,7 @@ const [n, ...arr] = require('fs')
 
 // 5. 첫 번째 줄에 자연수 n을 입력받고, 그 다음줄부터 n개의 줄에 걸쳐 한 줄에 하나의 값을 입력받을 때
 
-const [n, ...arr] = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
+const [n, ...arr] = require('fs').readFileSync(filePath).toString().trim().split('\n');
 
 ​
 
@@ -40,7 +43,7 @@ const [n, ...arr] = require('fs').readFileSync('/dev/stdin').toString().trim().s
 
 // ex) n 입력 - 공백으로 구분된 n개의 값 입력 - m 입력 - 여러 줄에 걸쳐 m개의 값 입력
 
-const input = require('fs').readFileSync('/dev/stdin').toString().trim().split(/\s+/);
+const input = require('fs').readFileSync(filePath).toString().trim().split(/\s+/);
 
 const n = input[0];
 
@@ -96,7 +99,7 @@ rl.on('line', function (line) {
 
 
 const fs = require('fs');
-const filePath = process.platform === 'linux' ? '/dev/stdin' : '../input.txt';
+const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
 let input = fs
   .readFileSync(filePath)
   .toString()
