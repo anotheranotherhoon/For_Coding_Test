@@ -1,5 +1,5 @@
 const fs = require('fs');
-const filePath = process.platform === 'linux' ? filePath : './input.txt';
+const filePath = process.platform === 'linux' ? filePath : '../input.txt';
 const [n, ...arr] = require('fs')
     .readFileSync(filePath)
     .toString()
